@@ -9,6 +9,7 @@ const punkAPI = new PunkAPIWrapper();
 
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
+require('dotenv').config()
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -43,4 +44,4 @@ app.get('/random-beer', (req, res) => {
   .catch(error => console.log(error));
 })
 
-app.listen(3000, () => console.log('🏃‍ on port 3000'));
+app.listen(process.env.PORT || 3000, () => console.log('🏃‍ on port 3000'));
